@@ -51,7 +51,6 @@ public class Student {
 
     public Double getAverageExamScore(){
         Double average = 0.0;
-        DecimalFormat decimal = new DecimalFormat("#.##");
 
         for(Double i : examScores){
             average += i;

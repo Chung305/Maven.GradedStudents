@@ -1,7 +1,6 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Classroom{
     private Student[] student;
@@ -17,9 +16,20 @@ public class Classroom{
         this.student = student;
     }
 
-    public Student[] getStudents() {
+    public String[] getStudents() {
+        ArrayList<String> output = new ArrayList<>();
 
-        return student;
+        for(Student each : this.student){
+            output.add("Student Name: " + each.getFirstName() + " " + each.getLastName() +
+                    "\n > Average Score: " + each.getAverageExamScore() +
+                    "\n > Exam Scores:\n" + each.getExamScores()) ;
+        }
+        String[] result = new String[output.size()];
+        for(int i = 0; i < output.size(); i++){
+            result[i] = output.get(i);
+        }
+        return result;
+
     }
 
     public Double getAverageExamScores(){
@@ -36,10 +46,13 @@ public class Classroom{
     }
 
     public void addStudent(Student student){
-        for(int i = 0; i < this.student.length; i++){
-            if(this.student[i] == null){
-                this.student[i] = student;
-            }
+        ArrayList<Student> output = new ArrayList<>();
+
+        output.add(student);
+
+        Student[] result = new Student[output.size()];
+        for(int i = 0; i < output.size(); i++){
+            result[i] = output.get(i);
         }
     }
 

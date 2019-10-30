@@ -48,9 +48,9 @@ public class ClassroomTest {
         Student student = new Student("Leon", "Hunter", examScores);
 
         // When
-        Student[] preEnrollment = classroom.getStudents();
+        String[] preEnrollment = classroom.getStudents();
         classroom.addStudent(student);
-        Student[] postEnrollment = classroom.getStudents();
+        String[] postEnrollment = classroom.getStudents();
 
         // Then
         String preEnrollmentAsString = preEnrollment.toString();
