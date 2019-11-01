@@ -15,7 +15,6 @@ public class StudentTest {
     @After
     public void tearDown() throws Exception {
     }
-
     @Test
     public void getExamsScoresTest(){
         //Given
@@ -144,6 +143,7 @@ public class StudentTest {
         //Then
         System.out.println(output);
     }
+
 
 
 

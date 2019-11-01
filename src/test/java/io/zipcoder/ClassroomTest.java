@@ -1,6 +1,7 @@
 package io.zipcoder;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,18 +49,29 @@ public class ClassroomTest {
         Student student = new Student("Leon", "Hunter", examScores);
 
         // When
-        String[] preEnrollment = classroom.getStudents();
+
         classroom.addStudent(student);
-        String[] postEnrollment = classroom.getStudents();
+        Student expected = classroom.getStudents();
 
         // Then
-        String preEnrollmentAsString = preEnrollment.toString();
-        String postEnrollmentAsString = postEnrollment.toString();
+        Assert.assertEquals(expected, classroom.getStudents());
 
-        System.out.println("===========================");
-        System.out.println(preEnrollmentAsString);
-        System.out.println("===========================");
-        System.out.println(postEnrollmentAsString);
+    }
+    @Test
+    public void removeStudentTest(){
+        int numberOfStudentExpected = 0;
+        Classroom classroom =  new Classroom(1);
+        ArrayList<Double> exams = new ArrayList<>();
+        exams.add(155.0);
+        Student student = new Student("chung", "Arguello", exams);
+
+        classroom.addStudent(student);
+
+        classroom.removeStudent("chung", "Arguello");
+
+        //then
+        Assert.assertEquals(numberOfStudentExpected, classroom.getNumberOfStudents());
+
 
     }
 }

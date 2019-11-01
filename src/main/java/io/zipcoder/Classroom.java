@@ -1,8 +1,10 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Classroom{
+public class Classroom {
     private Student[] student;
 
     public Classroom(){
@@ -16,19 +18,14 @@ public class Classroom{
         this.student = student;
     }
 
-    public String[] getStudents() {
-        ArrayList<String> output = new ArrayList<>();
+    public Student getStudents() {
 
-        for(Student each : this.student){
-            output.add("Student Name: " + each.getFirstName() + " " + each.getLastName() +
-                    "\n > Average Score: " + each.getAverageExamScore() +
-                    "\n > Exam Scores:\n" + each.getExamScores()) ;
+        for(Student each : student){
+            if(each!= null)
+                return each;
         }
-        String[] result = new String[output.size()];
-        for(int i = 0; i < output.size(); i++){
-            result[i] = output.get(i);
-        }
-        return result;
+
+        return  null;
 
     }
 
@@ -55,5 +52,23 @@ public class Classroom{
             result[i] = output.get(i);
         }
     }
+
+    public void removeStudent(String firsName, String lastName){
+        ArrayList<Student> student = new ArrayList<>();
+        Collections.addAll(student, this.student);
+        for(Student each : student){
+            if(each.getFirstName().equals(firsName) && each.getLastName().equals(lastName))
+                student.remove(each);
+        }
+        this.student = new Student[student.size()];
+        for(int i = 0; i < student.size(); i++){
+            this.student[i] = student.get(i);
+        }
+    }
+
+    public int getNumberOfStudents(){
+        return this.student.length;
+    }
+
 
 }

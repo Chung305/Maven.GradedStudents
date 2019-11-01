@@ -1,7 +1,9 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Student {
     private String firstName;
@@ -12,15 +14,15 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.examScores = examScores;
+
     }
 
     public String getExamScores(){
         String output = "";
         Integer examNumber = 1;
-
-        for(Double i : examScores){
+        for(Double i : examScores)
             output += "Exam " + examNumber++ + " -> " + i + "\n";
-        }
+
         return output;
     }
 
